@@ -1,6 +1,5 @@
 function regulacao = CalculaRegulacao(Vaberto, Vcarga)
-%UNTITLED2 Summary of this function goes here
-%   Detailed explanation goes here
+% Funcao que calcula a regulacao
     
     regulacao = (Vaberto - Vcarga) ./ (Vcarga);
     
