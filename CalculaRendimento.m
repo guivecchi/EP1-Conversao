@@ -1,14 +1,7 @@
-function rendimento = CalculaRendimento(potenciaPrimario, potenciaSecundario)
+function rendimento = CalculaRendimento(S, V1, I1)
 % Funcao que calcula o rendimento
 
-% Se formos utilizar a fração das potencias, teremos:
-rendimento = potenciaSecundario / potenciaPrimario;
-
-% Se formos utilizar a formula mais completa teriamos:
-% function rendimento = CalculaRendimento(V2, I2, phi2, perdasFerro, perdasJoule)
-% rendimento = (V2*I2*cos(phi2))/(V2*I2*cos(phi2)+perdasFerro+perdasJoule)
-
-% Possiveis mudanças: Vetorização
-
+    rendimento = ((real(S)) ./ (real(V1 .* conj(I1)))) * 100;
+    
 end
 
