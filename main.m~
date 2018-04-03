@@ -42,23 +42,17 @@ S_complexo = S*cos(phi) + j*S*sin(phi); % A parte complexa é negativa, visto qu
 I2_linha_conjugado = S_complexo ./ V2_linha;
 I2_linha = conj(I2_linha_conjugado);
 
-% Para o primeiro caso:
-E_alta_tensao = z_aberto .* I2_linha + V2_linha;
-% Para o segundo caso:
-% E_alta_tensao = (2 * z_aberto) .* I2_linha + V2_linha;
+E_alta_tensao = 2*z_aberto .* I2_linha + V2_linha;
 
 I0 = E_alta_tensao ./ z_cc;
 I1 = I0 + I2_linha;
 
-% Para o primero caso:
 V1 = z_aberto * I1 + E_alta_tensao;
-% Para o segundo caso:
-% V1 = E_alta_tensao;
 
-% Para o primeiro caso:
 V2_aberto = V1/(1 + (z_aberto/z_cc));
-% Para o segundo caso:
-% V2_aberto = V1;
+
+real_S = real(S);
+real_V1I1 = (real(V1 .* conj(I1)));
 
 rendimento = CalculaRendimento(S_complexo, V1, I1);
 regulacao = CalculaRegulacao(V2_aberto, V2_linha);
